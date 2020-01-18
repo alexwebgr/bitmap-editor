@@ -10,6 +10,7 @@ describe AWB::Commands::Clear do
           AOOOO
           OOOOO
           OOOOO
+          OOOOO
         EOS
         )
     end

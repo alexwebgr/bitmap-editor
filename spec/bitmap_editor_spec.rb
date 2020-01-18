@@ -10,7 +10,7 @@ describe AWB::BitmapEditor do
     end
 
     context 'correct file' do
-      xdescribe 'Final' do
+      describe 'Final' do
         let(:output) { `bin/bitmap_editor ./spec/fixtures/final.txt` }
         it 'shows an M x N final bitmap' do
           expect(output).to eq(<<~EOS

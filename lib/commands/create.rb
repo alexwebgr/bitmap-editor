@@ -3,7 +3,7 @@ module AWB
     class Create
       def self.draw(params)
         bitmap = ''
-        matrix = Array.new(params[1].to_i) {Array.new(params[2].to_i, AWB::DEFAULT_COLOR)}
+        matrix = Array.new(params[2].to_i) {Array.new(params[1].to_i, AWB::DEFAULT_COLOR)}
 
         matrix.each do |item|
           bitmap += "#{item.join}\n"
