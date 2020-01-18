@@ -1,6 +1,7 @@
 require_relative 'awb'
 require_relative 'commands/create'
 require_relative 'commands/color_dot'
+require_relative 'commands/vertical_line'
 require_relative 'commands/clear'
 require_relative 'commands/show'
 
@@ -10,6 +11,7 @@ module AWB
       {
         I: Commands::Create,
         L: Commands::ColorDot,
+        V: Commands::VerticalLine,
         C: Commands::Clear,
         S: Commands::Show
       }
