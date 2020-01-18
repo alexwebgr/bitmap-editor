@@ -1,15 +1,29 @@
-class BitmapEditor
+require_relative 'awb'
+require_relative 'commands/create'
+require_relative 'commands/clear'
+require_relative 'commands/show'
 
-  def run(file)
-    return puts "please provide correct file" if file.nil? || !File.exists?(file)
+module AWB
+  class BitmapEditor
+    def commands
+      {
+        I: Commands::Create,
+        C: Commands::Clear,
+        S: Commands::Show
+      }
+    end
 
-    File.open(file).each do |line|
-      line = line.chomp
-      case line
-      when 'S'
-          puts "There is no image"
-      else
-          puts 'unrecognised command :('
+    def run(file)
+      return print "please provide correct file" if file.nil? || !File.exists?(file)
+
+      File.open(file).each do |line|
+        params = line.chomp.split(' ')
+        command =  params[0].to_sym
+
+        unless commands.key?(command)
+          raise StandardError('command not found')
+        end
+        commands[command].draw(params)
       end
     end
   end
