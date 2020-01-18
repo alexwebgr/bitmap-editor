@@ -1,4 +1,5 @@
 require_relative 'awb'
+require_relative 'validator'
 require_relative 'commands/create'
 require_relative 'commands/color_dot'
 require_relative 'commands/vertical_line'
