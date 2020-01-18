@@ -1,5 +1,6 @@
 require_relative 'awb'
 require_relative 'commands/create'
+require_relative 'commands/color_dot'
 require_relative 'commands/clear'
 require_relative 'commands/show'
 
@@ -8,6 +9,7 @@ module AWB
     def commands
       {
         I: Commands::Create,
+        L: Commands::ColorDot,
         C: Commands::Clear,
         S: Commands::Show
       }
@@ -18,7 +20,7 @@ module AWB
 
       File.open(file).each do |line|
         params = line.chomp.split(' ')
-        command =  params[0].to_sym
+        command = params[0]&.to_sym
 
         unless commands.key?(command)
           raise StandardError('command not found')

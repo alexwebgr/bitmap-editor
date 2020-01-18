@@ -10,28 +10,19 @@ describe AWB::BitmapEditor do
     end
 
     context 'correct file' do
-      let(:output) { `bin/bitmap_editor ./spec/fixtures/create.txt` }
-      it 'shows an M x N final bitmap' do
-        expect(output).to eq(<<~EOS
-OOOOO
-OOOOO
-OOOOO
-OOOOO
-OOOOO
-        EOS
-        )
-      end
-
-      let(:output) { `bin/bitmap_editor ./spec/fixtures/clear.txt` }
-      it 'resets the bitmap' do
-        expect(output).to eq(<<~EOS
-OOOOO
-OOOOO
-OOOOO
-OOOOO
-OOOOO
-        EOS
-        )
+      xdescribe 'Final' do
+        let(:output) { `bin/bitmap_editor ./spec/fixtures/final.txt` }
+        it 'shows an M x N final bitmap' do
+          expect(output).to eq(<<~EOS
+            OOOOO
+            OOZZZ
+            AWOOO
+            OWOOO
+            OWOOO
+            OWOOO
+          EOS
+          )
+        end
       end
     end
   end
