@@ -8,7 +8,7 @@ module AWB
         pos = *(params[1].to_i..params[2].to_i)
 
         pos.each do |v|
-          lines[params[3].to_i - 1][v - 1] = params[4]
+          lines[params[3].to_i - 1][v - 1] = params[4] if lines[params[3].to_i - 1] && lines[params[3].to_i - 1][v - 1]
         end
 
         File.open(AWB::OUTPUT_FILE, 'w') { |f| f.write "#{lines.join("\n")}\n" }

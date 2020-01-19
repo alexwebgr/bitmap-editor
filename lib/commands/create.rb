@@ -1,6 +1,7 @@
 module AWB
   module Commands
     class Create
+      # I N M
       def self.draw(params)
         raise(ArgumentError, "dimensions are outside of allowed range | #{AWB::MIN} - #{AWB::MAX}") unless AWB::Validator.within_bounds?(params)
 

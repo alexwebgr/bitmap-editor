@@ -1,6 +1,7 @@
 module AWB
   module Commands
     class ColorDot
+      # L X Y C
       def self.draw(params)
         matrix = File.read(AWB::OUTPUT_FILE)
         lines = matrix.split("\n")
